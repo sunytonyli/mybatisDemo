@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.tony.mybatis.core.dao.DemoOneDao">
+
+<!-- 一对多关联 collection中的column为关联字段 -->
+	<resultMap type="Master" id="MasterMap">
+		<result property="nama" column="nama" />
+		<result property="usia" column="usia" />
+		<collection property="contohList" column="nama" ofType="Contoh" javaType="ArrayList" resultMap="ContohMap"/>
+	</resultMap>
+	<resultMap type="Contoh" id="ContohMap">
+		<id property="id" column="id" />
+		<result property="nama" column="nama" />
+		<result property="alamat" column="alamat" />
+	</resultMap>
+
+	<select id="getMasters" resultMap="MasterMap">
+		select * from master a inner join contoh b on a.nama = b.nama order by a.nama
+	</select>
+
+</mapper>
