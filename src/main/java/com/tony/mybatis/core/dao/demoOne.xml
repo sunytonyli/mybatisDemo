@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.tony.mybatis.core.dao.DemoOneDao">
 
-<!-- 一对多关联 collection中的column为关联字段 -->
+<!-- 一对多关联 collection中的column为关联字段,特别注意：子(list)一定要有id配置-->
 	<resultMap type="Master" id="MasterMap">
 		<result property="nama" column="nama" />
 		<result property="usia" column="usia" />
