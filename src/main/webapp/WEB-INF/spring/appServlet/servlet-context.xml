@@ -32,12 +32,23 @@
 		<beans:property name="location" value="/WEB-INF/spring/jdbc.properties" /> 
 		<beans:property name="fileEncoding" value="utf-8" /> </beans:bean> -->
 
-	<beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<!-- postgresql -->
+<!-- 	<beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<beans:property name="driverClass" value="org.postgresql.Driver" />
 		<beans:property name="jdbcUrl"
 			value="jdbc:postgresql://127.0.0.1:5432/mybatis_demo" />
 		<beans:property name="user" value="postgres" />
+		<beans:property name="password" value="123456" />
+	</beans:bean>
+	 -->
+	<!-- oracle -->
+	<beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<beans:property name="driverClass" value="oracle.jdbc.OracleDriver" />
+		<beans:property name="jdbcUrl"
+			value="jdbc:oracle:thin:@127.0.0.1:1521:testdb" />
+		<beans:property name="user" value="loantest" />
 		<beans:property name="password" value="123456" />
 	</beans:bean>
 
@@ -58,7 +69,7 @@
 		<beans:property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean" />
 
 	</beans:bean>
-
+	
 	<beans:bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<beans:property name="dataSource" ref="dataSource" />

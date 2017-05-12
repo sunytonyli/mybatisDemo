@@ -8,13 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.tony.mybatis.core.entity.Master;
 import com.tony.mybatis.core.service.IDemoOneServiceInf;
 
+//@WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:*/spring/appServlet/servlet-context.xml" })
-public class DemoOneServiceTest extends AbstractTransactionalJUnit4SpringContextTests{
+public class DemoOneServiceTest /*extends AbstractTransactionalJUnit4SpringContextTests*/{
 
 	@Autowired
 	private IDemoOneServiceInf demoOneService;
@@ -23,6 +25,12 @@ public class DemoOneServiceTest extends AbstractTransactionalJUnit4SpringContext
 	public void testDemoOne(){
 		List<Master> masterList = demoOneService.getMasters();
 		System.out.println(masterList);
+	}
+	
+	@Test
+	public void testInsertMaster(){
+		Master master = new Master();
+		demoOneService.insertMaster(master);
 	}
 	
 }

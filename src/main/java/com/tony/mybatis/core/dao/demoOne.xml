@@ -17,5 +17,9 @@
 	<select id="getMasters" resultMap="MasterMap">
 		select * from master a inner join contoh b on a.nama = b.nama order by a.nama
 	</select>
+	
+	<insert id="insertMaster" parameterType="Master">
+		insert into master(name, usia) values(#{name}, #{usia})
+	</insert>
 
 </mapper>

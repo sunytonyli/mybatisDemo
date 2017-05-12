@@ -8,4 +8,5 @@ public interface DemoOneDao {
 
 	public List<Master> getMasters();
 	
+	public void insertMaster(Master master);
 }

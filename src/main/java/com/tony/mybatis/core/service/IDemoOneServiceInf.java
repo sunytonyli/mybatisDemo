@@ -8,4 +8,7 @@ public interface IDemoOneServiceInf {
 
 	public List<Master> getMasters();
 	
+	public void insertMaster(Master master);
+	
+	public String threadPoolDemo();
 }
